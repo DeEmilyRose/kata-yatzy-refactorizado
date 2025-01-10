@@ -1,40 +1,32 @@
 class Yatzy:
 
-    @staticmethod
-    def chance(d1, d2, d3, d4, d5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
+    FIFTY = 50
+    ZERO = 0
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
+    def chance(*dice):
+        return sum(dice)
+
+    @staticmethod
+    def yatzy(*dice):
+        list_of_numbers = []
+
         for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+            if die not in list_of_numbers:
+                list_of_numbers.append(die)
+        if len(list_of_numbers) != 1:
+            return Yatzy.ZERO
+        else:
+            return Yatzy.FIFTY
 
     @staticmethod
-    def ones(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1):
-            sum += 1
+    def ones(*dice):
+        list_of_ones = []
 
-        return sum
+        for die in dice:
+            if die == 1:
+                list_of_ones.append(die)
+        return sum(list_of_ones)
 
     @staticmethod
     def twos(d1, d2, d3, d4, d5):
