@@ -29,34 +29,22 @@ class Yatzy:
         return sum(list_of_ones)
 
     @staticmethod
-    def twos(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 2):
-            sum += 2
-        if (d2 == 2):
-            sum += 2
-        if (d3 == 2):
-            sum += 2
-        if (d4 == 2):
-            sum += 2
-        if (d5 == 2):
-            sum += 2
-        return sum
+    def twos(*dice):
+        list_of_twos = []
+
+        for die in dice:
+            if die == 2:
+                list_of_twos.append(die)
+        return sum(list_of_twos)
 
     @staticmethod
-    def threes(d1, d2, d3, d4, d5):
-        s = 0
-        if (d1 == 3):
-            s += 3
-        if (d2 == 3):
-            s += 3
-        if (d3 == 3):
-            s += 3
-        if (d4 == 3):
-            s += 3
-        if (d5 == 3):
-            s += 3
-        return s
+    def threes(*dice):
+        list_of_threes = []
+
+        for die in dice:
+            if die == 3:
+                list_of_threes.append(die)
+        return sum(list_of_threes)
 
     def __init__(self, d1=0, d2=0, d3=0, d4=0, _5=0):
         self.dice = [0] * 5
