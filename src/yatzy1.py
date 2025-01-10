@@ -1,18 +1,23 @@
 class Yatzy:
 
+    FIFTY = 50
+    ZERO = 0
+
     @staticmethod
     def chance(*dice):
         return sum(dice)
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
+    def yatzy(*dice):
+        list_of_numbers = []
+
         for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+            if die not in list_of_numbers:
+                list_of_numbers.append(die)
+        if len(list_of_numbers) != 1:
+            return Yatzy.ZERO
+        else:
+            return Yatzy.FIFTY
 
     @staticmethod
     def ones(d1, d2, d3, d4, d5):
