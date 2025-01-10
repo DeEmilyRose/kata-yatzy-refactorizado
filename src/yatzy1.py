@@ -1,8 +1,8 @@
 class Yatzy:
 
     @staticmethod
-    def chance(die1, die2, die3, die4, die5):
-        total = (die1 + die2 + die3 + die4 + die5)
+    def chance(*dice):
+        total = sum(dice)
         return total
 
     @staticmethod
