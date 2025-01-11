@@ -85,24 +85,15 @@ class Yatzy:
         return 0
 
     @staticmethod
-    def two_pair(d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if (counts[6 - i - 1] >= 2):
-                n = n + 1
-                score += (6 - i)
+    def two_pair(*dice):
+        list_two_pair = []
 
-        if (n == 2):
-            return score * 2
-        else:
-            return 0
+        for die in range(6, 0, -1):
+            if dice.count(die) >= 2:
+                list_two_pair.append(die)
+            if len(list_two_pair) == 2:
+                return sum(list_two_pair) * 2
+        return 0
 
     @staticmethod
     def four_of_a_kind(_1, _2, d3, d4, d5):
