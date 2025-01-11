@@ -78,17 +78,10 @@ class Yatzy:
                 list_of_sixes.append(die)
         return sum(list_of_sixes)
 
-    def score_pair(self, d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6 - at - 1] == 2):
-                return (6 - at) * 2
+    def score_pair(*dice):
+        for die in range(6, 0, -1):
+            if dice.count(die) >= 2:
+                return die * 2
         return 0
 
     @staticmethod
