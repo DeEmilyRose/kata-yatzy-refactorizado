@@ -70,12 +70,13 @@ class Yatzy:
                 list_of_fives.append(die)
         return sum(list_of_fives)
 
-    def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)):
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+    def sixes(*dice):
+        list_of_sixes = []
+
+        for die in dice:
+            if die == 6:
+                list_of_sixes.append(die)
+        return sum(list_of_sixes)
 
     def score_pair(self, d1, d2, d3, d4, d5):
         counts = [0] * 6
