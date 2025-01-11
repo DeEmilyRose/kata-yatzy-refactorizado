@@ -54,12 +54,13 @@ class Yatzy:
         self.dice[3] = d4
         self.dice[4] = _5
 
-    def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4):
-                sum += 4
-        return sum
+    def fours(*dice):
+        list_of_fours = []
+
+        for die in dice:
+            if die == 4:
+                list_of_fours.append(die)
+        return sum(list_of_fours)
 
     def fives(self):
         s = 0
