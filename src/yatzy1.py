@@ -111,25 +111,17 @@ class Yatzy:
 
     @staticmethod
     def smallStraight(*dice):
-        dice_set = set(dice)
+        dice_set_small = set(dice)
 
-        if dice_set == {1, 2, 3, 4, 5}:
+        if dice_set_small == {1, 2, 3, 4, 5}:
             return 15
         return 0
 
     @staticmethod
-    def largeStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1
-                and tallies[5] == 1):
+    def largeStraight(*dice):
+        dice_set_larges = set(dice)
+
+        if dice_set_larges == {2, 3, 4, 5, 6}:
             return 20
         return 0
 
