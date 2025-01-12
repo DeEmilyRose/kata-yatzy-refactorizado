@@ -103,47 +103,25 @@ class Yatzy:
         return 0
 
     @staticmethod
-    def three_of_a_kind(d1, d2, d3, d4, d5):
-        t = [0] * 6
-        t[d1 - 1] += 1
-        t[d2 - 1] += 1
-        t[d3 - 1] += 1
-        t[d4 - 1] += 1
-        t[d5 - 1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i + 1) * 3
+    def three_of_a_kind(*dice):
+        for die in range(6, 0, -1):
+            if dice.count(die) >= 3:
+                return die * 3
         return 0
 
     @staticmethod
-    def smallStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[0] == 1 and
-                tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1):
+    def smallStraight(*dice):
+        dice_set_small = set(dice)
+
+        if dice_set_small == {1, 2, 3, 4, 5}:
             return 15
         return 0
 
     @staticmethod
-    def largeStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1
-                and tallies[5] == 1):
+    def largeStraight(*dice):
+        dice_set_larges = set(dice)
+
+        if dice_set_larges == {2, 3, 4, 5, 6}:
             return 20
         return 0
 
